@@ -1,3 +1,14 @@
+PLATFORM ?= android
+
+ifeq ($(PLATFORM), ios)
+    BUILD_DIR := ios/build
+    TOOLCHAIN := ios/toolchain.cmake
+    TARGET := ios
+else
+    BUILD_DIR := android/app/.cxx
+    TARGET := android
+endif
+
 CC = clang
 CXX = clang++
 OPT ?= -O1
